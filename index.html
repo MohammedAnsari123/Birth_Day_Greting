@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Birthday Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 🌟 Birthday Hero Section -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-content">
+            <h1>🎉 A Celebration for You, Azam sir 🎉</h1>
+            <p>This is for your birthday celebration, our dearest Azam sir. <br>
+                Congratulations on starting your new classes Aims our Azam!</p>
+        </div>
+    </section>
+
+    <!-- 🎉 Animated Birthday Card -->
+    <section id="card" class="section card-section">
+        <h1 class="birthday-heading">🎂 Happy Birthday, <span id="celebrantName">Sir ji</span>! 🎈</h1>
+        <p class="birthday-msg">May Allah bless you and</p>
+        <p class="birthday-msg">Wishing you a day filled with love, joy, and cake! 🍰</p>
+        <audio controls autoplay loop id="bgMusic">
+            <source src="audio/BirthDay_Them_Song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </section>
+
+    <!-- ⏳ Countdown Timer -->
+    <section id="countdown" class="section countdown-section">
+        <h2>Countdown to Your Birthday Day</h2>
+        <div id="timer">
+            <span id="days">00</span> Days
+            <span id="hours">00</span> Hours
+            <span id="minutes">00</span> Minutes
+            <span id="seconds">00</span> Seconds
+        </div>
+    </section>
+
+    <!-- 🧠 Interactive Quiz -->
+    <section id="quiz" class="section quiz-section">
+        <h2>🎉 How Well Do You Know the Birthday Star?</h2>
+        <div id="quiz-container"></div>
+        <button id="submitQuiz">Submit Answers</button>
+    </section>
+
+    <!-- 🎮 Surprise Game -->
+    <section id="game" class="section game-section">
+        <h2>🎯 Pop the Balloons Game!</h2>
+        <div id="game-area"></div>
+        <p id="gameResult"></p>
+    </section>
+
+    <!-- 💌 Digital Wishes Wall -->
+    <section id="wall" class="section wall-section">
+        <h2>🎁 Leave Your Birthday Wishes</h2>
+        <form id="wishForm">
+            <input type="text" id="nameInput" placeholder="Your Name" required>
+            <input type="text" id="messageInput" placeholder="Your Message" required>
+            <button type="submit">Send Wish</button>
+        </form>
+        <div id="wishesDisplay"></div>
+    </section>
+
+    <!-- 📸 Birthday Slideshow -->
+    <section id="slideshow" class="section slideshow-section">
+        <h2>📸 Birthday Memories Slideshow</h2>
+        <div class="slideshow-wrapper">
+            <div class="slideshow-track">
+                <img src="images/img1.jpg" alt="slide">
+                <img src="images/img2.jpg" alt="slide">
+                <img src="images/img3.jpg" alt="slide">
+                <img src="images/img4.jpg" alt="slide">
+                <img src="images/img5.jpg" alt="slide">
+                <img src="images/img6.jpg" alt="slide">
+                <img src="images/img7.jpg" alt="slide">
+                <img src="images/img8.jpg" alt="slide">
+                <img src="images/img9.jpg" alt="slide">
+                <img src="images/img10.jpg" alt="slide">
+            </div>
+        </div>
+    </section>
+
+    <!-- 🙏 Thank You Message -->
+    <section id="thankYouMsg" class="section thank-you-section">
+        <h2>💖 Thank You for Beagin the part of my life!</h2>
+        <p>You made the day more special! 🎊</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
