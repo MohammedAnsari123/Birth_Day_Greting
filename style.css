@@ -1,55 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
 :root {
-    /* Backgrounds */
-    --bg-main: #fff8f0;
-    /* Soft cream background */
-    --bg-secondary: #fef6ff;
-    /* Light lavender */
+    --bg-main: #1e1e2f;
+    --bg-secondary: #2c2c3f;
 
-    /* Primary Theme Colors */
-    --primary-color: #ff69b4;
-    /* Hot pink (buttons, accents) */
-    --secondary-color: #6a5acd;
-    /* Slate blue (quiz, game cards) */
-    --accent-color: #ffd700;
-    /* Gold (stars, highlights) */
+    --primary-color: #f9a825;
+    --secondary-color: #00acc1;
+    --accent-color: #ff4081;
 
-    /* Text */
-    --text-primary: #2d2d2d;
-    /* Dark gray */
-    --text-secondary: #5f5f5f;
-    /* Medium gray */
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
 
-    /* Buttons & Elements */
-    --btn-bg: #ff69b4;
-    --btn-hover: #ff1493;
+    --btn-bg: #00acc1;
+    --btn-hover: #00838f;
     --btn-text: #ffffff;
 
-    /* Animations / Confetti */
-    --confetti-pink: #ffb6c1;
-    --confetti-blue: #add8e6;
-    --confetti-yellow: #fffacd;
-    --confetti-green: #98fb98;
+    --confetti-pink: #ff80ab;
+    --confetti-blue: #80d8ff;
+    --confetti-yellow: #fff176;
+    --confetti-green: #69f0ae;
 
-    /* Slideshow */
-    --slideshow-bg: #ffffff;
-    --slideshow-border: #ff69b4;
+    --slideshow-bg: #2c2c3f;
+    --slideshow-border: #f9a825;
 
-    /* Wishes Wall */
-    --wish-card-bg: #ffffff;
-    --wish-card-border: #ffd700;
+    --wish-card-bg: #2e2e40;
+    --wish-card-border: #00acc1;
 
-    /* Existing color variables... */
-    /* 🎨 Gradient Variables */
-    --gradient-birthday-sky: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    --gradient-party-pop: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
-    --gradient-magical-evening: linear-gradient(to right, #a18cd1, #fbc2eb);
-    --gradient-sunset-celebration: linear-gradient(to right, #fbc2eb, #a6c1ee);
-    --gradient-candy-confetti: linear-gradient(to right, #f6d365, #fda085, #fbc2eb);
+    --gradient-birthday-sky: linear-gradient(135deg, #1e1e2f, #2c2c3f);
+    --gradient-party-pop: linear-gradient(90deg, #f9a825, #ff4081);
+    --gradient-magical-evening: linear-gradient(to right, #00acc1, #2c2c3f);
+    --gradient-sunset-celebration: linear-gradient(to right, #f9a825, #ff4081);
+    --gradient-candy-confetti: linear-gradient(to right, #00acc1, #f9a825, #ff4081);
 }
 
-/* 🔧 Global Styles */
 body {
     margin: 0;
     font-family: 'Baloo 2', cursive;
@@ -58,8 +41,90 @@ body {
     line-height: 1.6;
 }
 
-h1,
-h2 {
+.section {
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--bg-secondary);
+}
+
+.hero-section {
+    background: var(--gradient-birthday-sky);
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 0 0 40px 40px;
+    animation: fadeIn 2s ease-out;
+}
+
+.shine-text {
+    font-size: 2.8rem;
+    background: linear-gradient(to right, #f9a825, #fff59d, #f9a825);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        background-position: -200%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+.hero-sub {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+}
+
+.quote-section {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.4rem;
+    padding: 2rem;
+    border-radius: 20px;
+    background: var(--gradient-magical-evening);
+}
+
+.confetti {
+    pointer-events: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('confetti1.jpg');
+    background-size: 200px;
+    background-repeat: repeat;
+    z-index: 1000;
+    animation: floatConfetti 60s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes floatConfetti {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Baloo 2', cursive;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+h1,h2 {
     text-align: center;
     color: var(--primary-color);
 }
@@ -74,7 +139,6 @@ h2 {
     margin-right: auto;
 }
 
-/* 🌟 Hero Section */
 .hero-section {
     background: var(--gradient-birthday-sky);
     text-align: center;
@@ -100,7 +164,6 @@ h2 {
     line-height: 1.8;
 }
 
-/* Optional fade-in */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -113,7 +176,6 @@ h2 {
     }
 }
 
-/* Mobile adjustments */
 @media screen and (max-width: 600px) {
     .hero-content h1 {
         font-size: 2rem;
@@ -124,7 +186,6 @@ h2 {
     }
 }
 
-/* 🎉 Card Section */
 .card-section {
     background: var(--gradient-birthday-sky);
     text-align: center;
@@ -145,7 +206,6 @@ h2 {
     margin-top: 1rem;
 }
 
-/* ⏳ Countdown */
 .countdown-section {
     background: var(--gradient-party-pop);
     text-align: center;
@@ -157,7 +217,6 @@ h2 {
     margin: 0 10px;
 }
 
-/* 🧠 Quiz */
 .quiz-section {
     background: var(--gradient-sunset-celebration);
 }
@@ -181,7 +240,6 @@ h2 {
     background: var(--btn-hover);
 }
 
-/* 🎮 Game */
 .game-section {
     background: var(--gradient-magical-evening);
     text-align: center;
@@ -189,13 +247,28 @@ h2 {
 
 #game-area {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
-    margin-top: 1rem;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 1rem;
 }
 
-/* 💌 Wishes Wall */
+.balloon {
+    font-size: 3rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.balloon:hover {
+    transform: scale(1.2);
+}
+
+.balloon.popped {
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
 .wall-section {
     background: var(--gradient-candy-confetti);
 }
@@ -236,7 +309,6 @@ form#wishForm {
     border-radius: 10px;
 }
 
-/* 📸 Slideshow */
 .slideshow-section {
     background: var(--gradient-sunset-celebration);
     text-align: center;
@@ -266,21 +338,18 @@ form#wishForm {
 
 .slideshow-track {
     display: flex;
-    width: calc(300px * 6);
-    /* image width × number of images */
-    animation: scrollSlides 20s linear infinite;
+    width: calc(300px * 20);
+    animation: scrollSlides 20s linear forwards;
 }
 
 .slideshow-track img {
-    /* width: 300px; */
-    height: 200px;
+    height: 300px;
     border-radius: 12px;
     margin-right: 20px;
     border: 3px solid var(--slideshow-border);
     flex-shrink: 0;
 }
 
-/* Keyframe for sliding */
 @keyframes scrollSlides {
     0% {
         transform: translateX(0);
@@ -291,7 +360,6 @@ form#wishForm {
     }
 }
 
-/* 🙏 Thank You */
 .thank-you-section {
     background: var(--gradient-magical-evening);
     text-align: center;
@@ -299,7 +367,6 @@ form#wishForm {
     color: #fff;
 }
 
-/* 📱 Responsive */
 @media screen and (max-width: 600px) {
     .birthday-heading {
         font-size: 2rem;
@@ -314,4 +381,3 @@ form#wishForm {
         max-width: 300px;
     }
 }
-

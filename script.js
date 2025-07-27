@@ -1,12 +1,54 @@
-// 🎯 Global Setup
+// // 🎯 Global Setup
+// document.addEventListener("DOMContentLoaded", () => {
+//     initCountdown();
+//     initQuiz();
+//     initWishesWall();
+//     initSlideshow();
+//     initBalloonGame();
+// });
+
+// // ⏳ Countdown Timer
+// function initCountdown() {
+//     function getNextBirthday(month, day) {
+//         const now = new Date();
+//         let year = now.getFullYear();
+//         const birthdayThisYear = new Date(year, month - 1, day);
+//         if (now > birthdayThisYear) year++;
+//         return new Date(year, month - 1, day);
+//     }
+
+//     const birthday = getNextBirthday(8, 4); // August 4
+//     const timer = document.getElementById("timer");
+
+//     setInterval(() => {
+//         const now = new Date();
+//         const diff = birthday - now;
+
+//         if (diff <= 0) {
+//             timer.innerHTML = "🎉 Happy Birthday! 🎉";
+//             return;
+//         }
+
+//         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+//         const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+//         const minutes = Math.floor((diff / 1000 / 60) % 60);
+//         const seconds = Math.floor((diff / 1000) % 60);
+
+//         document.getElementById("days").textContent = String(days).padStart(2, "0");
+//         document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+//         document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+//         document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+//     }, 1000);
+// }
+
 document.addEventListener("DOMContentLoaded", () => {
     initCountdown();
     initQuiz();
     initWishesWall();
     initSlideshow();
+    initBalloonGame();
 });
 
-// ⏳ Countdown Timer
 function initCountdown() {
     function getNextBirthday(month, day) {
         const now = new Date();
@@ -25,6 +67,8 @@ function initCountdown() {
 
         if (diff <= 0) {
             timer.innerHTML = "🎉 Happy Birthday! 🎉";
+            document.body.classList.add("birthday-mode");
+            playSurprise();
             return;
         }
 
@@ -38,6 +82,12 @@ function initCountdown() {
         document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
         document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
     }, 1000);
+}
+
+function playSurprise() {
+    alert("🎉 Surprise! Happy Birthday Azam Sir!\nWe all love and admire you so much!");
+    const audio = new Audio('audio/surprise-sound.mp3');
+    audio.play();
 }
 
 // 🧠 Quiz Logic (Hardcoded)
@@ -98,7 +148,38 @@ function initWishesWall() {
     renderWishes();
 }
 
-// 📸 Slideshow Upload
+function initBalloonGame() {
+    const gameArea = document.getElementById("game-area");
+    const result = document.getElementById("gameResult");
+    const totalBalloons = 6;
+    let popped = 0;
+
+    // Reset area
+    gameArea.innerHTML = "";
+    result.textContent = "";
+
+    for (let i = 0; i < totalBalloons; i++) {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.textContent = "🎈";
+
+        balloon.addEventListener("click", () => {
+            if (!balloon.classList.contains("popped")) {
+                balloon.classList.add("popped");
+                balloon.textContent = "💥";
+                popped++;
+
+                if (popped === totalBalloons) {
+                    result.textContent = "🎉 You popped all the balloons! Happy Birthday! 🎉";
+                }
+            }
+        });
+
+        gameArea.appendChild(balloon);
+    }
+}
+
+
 // 📸 Static Slideshow Loader
 function initSlideshow() {
     const container = document.getElementById("slideshowContainer");
