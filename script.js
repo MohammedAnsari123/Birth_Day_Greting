@@ -169,6 +169,10 @@ function initBalloonGame() {
                 balloon.textContent = "💥";
                 popped++;
 
+                // Play balloon pop sound
+                const popSound = new Audio('audio/balloon-pop.mp3');
+                popSound.play();
+
                 if (popped === totalBalloons) {
                     result.textContent = "🎉 You popped all the balloons! Happy Birthday! 🎉";
                 }
@@ -182,20 +186,11 @@ function initBalloonGame() {
 
 // 📸 Static Slideshow Loader
 function initSlideshow() {
-    const container = document.getElementById("slideshowContainer");
-
-    const images = [
-        "images/img1.jpg",
-        "images/img1.jpg",
-        "images/img1.jpg",
-        "images/img1.jpg",
-        "images/img1.jpg",
-        // add more filenames here
-    ];
-
-    images.forEach((src) => {
-        const img = document.createElement("img");
-        img.src = src;
-        container.appendChild(img);
-    });
+    // The slideshow is already implemented in HTML with slideshow-track
+    // No need for additional JavaScript as the CSS animation handles it
+    
+    // Remove this code as it's trying to use a non-existent element
+    // const container = document.getElementById("slideshowContainer");
+    // const images = [...]
+    // images.forEach((src) => {...})
 }
